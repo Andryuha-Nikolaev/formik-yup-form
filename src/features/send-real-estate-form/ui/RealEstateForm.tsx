@@ -1,8 +1,9 @@
 "use client";
 
 import { FieldNames } from "@/shared/config/fieldNames";
-import { FormikInput } from "@/shared/ui/fields/formik-input";
-import { FormikFormWrapper } from "@/shared/ui/form/formik-form-wrapper";
+import { FieldWrapper } from "@/shared/ui/form/field-wrapper";
+import { FormWrapper } from "@/shared/ui/form/form-wrapper";
+import { Input } from "@chakra-ui/react";
 import { Formik } from "formik";
 import * as Yup from "yup";
 
@@ -28,9 +29,11 @@ export const RealEstateForm = () => {
         onSubmit={handleSubmit}
         validationSchema={validationSchema}
       >
-        <FormikFormWrapper title="Объект недвижимости">
-          <FormikInput name={FieldNames.NAME} label="Название объекта *" />
-        </FormikFormWrapper>
+        <FormWrapper title="Объект недвижимости">
+          <FieldWrapper name={FieldNames.NAME} label="Название объекта *">
+            <Input />
+          </FieldWrapper>
+        </FormWrapper>
       </Formik>
     </>
   );

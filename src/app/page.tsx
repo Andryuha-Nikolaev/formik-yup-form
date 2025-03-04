@@ -1,9 +1,5 @@
-import s from "./page.module.css";
+import { HomePage } from "@/views/home";
 
 export default function Home() {
-  return (
-    <div className={s.page}>
-      <main className={s.main}>page</main>
-    </div>
-  );
+  return <HomePage />;
 }

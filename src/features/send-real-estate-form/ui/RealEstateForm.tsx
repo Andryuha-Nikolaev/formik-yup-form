@@ -23,36 +23,34 @@ export const RealEstateForm = () => {
   };
 
   return (
-    <>
-      <Formik
-        initialValues={initialValues}
-        onSubmit={handleSubmit}
-        validationSchema={validationSchema}
-      >
-        <FormWrapper title="Объект недвижимости">
-          <FieldWrapper name={FieldNames.NAME} label="Название объекта*">
-            <Input />
-          </FieldWrapper>
-          <FieldWrapper name={FieldNames.ADDRESS} label="Адрес*">
-            <Input />
-          </FieldWrapper>
-          <FieldWrapper name={FieldNames.FLOOR} label="Этаж*">
-            <Input type="number" />
-          </FieldWrapper>
-          <FieldWrapper name={FieldNames.TOTAL_FLOORS} label="Количество этажей в доме*">
-            <Input type="number" />
-          </FieldWrapper>
-          <FieldWrapper name={FieldNames.SQUARE} label="Площадь*">
-            <Input type="number" />
-          </FieldWrapper>
-          <FieldWrapper name={FieldNames.LIVING_SQUARE} label="Жилая площадь*">
-            <Input type="number" />
-          </FieldWrapper>
-          <FieldWrapper name={FieldNames.KITCHEN_SQUARE} label="Площадь кухни*">
-            <Input type="number" />
-          </FieldWrapper>
-        </FormWrapper>
-      </Formik>
-    </>
+    <Formik
+      initialValues={initialValues}
+      onSubmit={handleSubmit}
+      validationSchema={validationSchema}
+    >
+      <FormWrapper title="Объект недвижимости">
+        <FieldWrapper name={FieldNames.NAME} label="Название объекта*">
+          <Input />
+        </FieldWrapper>
+        <FieldWrapper name={FieldNames.ADDRESS} label="Адрес*">
+          <Input />
+        </FieldWrapper>
+        <FieldWrapper name={FieldNames.FLOOR} label="Этаж*">
+          <Input type="number" />
+        </FieldWrapper>
+        <FieldWrapper name={FieldNames.TOTAL_FLOORS} label="Количество этажей в доме*">
+          <Input type="number" />
+        </FieldWrapper>
+        <FieldWrapper name={FieldNames.SQUARE} label="Площадь*">
+          <Input type="number" />
+        </FieldWrapper>
+        <FieldWrapper name={FieldNames.LIVING_SQUARE} label="Жилая площадь*">
+          <Input type="number" />
+        </FieldWrapper>
+        <FieldWrapper name={FieldNames.KITCHEN_SQUARE} label="Площадь кухни*">
+          <Input type="number" />
+        </FieldWrapper>
+      </FormWrapper>
+    </Formik>
   );
 };

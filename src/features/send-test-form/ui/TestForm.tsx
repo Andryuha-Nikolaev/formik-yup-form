@@ -21,23 +21,21 @@ export const TestForm = () => {
   };
 
   return (
-    <>
-      <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-        <FormWrapper title="Чекбокс и радио">
-          <FieldWrapper name={FieldNames.CHECKBOX} label="Checkbox">
-            <Checkbox>aaaa</Checkbox>
-          </FieldWrapper>
-          <FieldWrapper name={FieldNames.RADIO} label="Radio">
-            <RadioGroup>
-              <Stack>
-                <Radio value="1">Option 1</Radio>
-                <Radio value="2">Option 2</Radio>
-                <Radio value="3">Option 3</Radio>
-              </Stack>
-            </RadioGroup>
-          </FieldWrapper>
-        </FormWrapper>
-      </Formik>
-    </>
+    <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+      <FormWrapper title="Чекбокс и радио">
+        <FieldWrapper name={FieldNames.CHECKBOX} label="Checkbox">
+          <Checkbox>Checkbox</Checkbox>
+        </FieldWrapper>
+        <FieldWrapper name={FieldNames.RADIO} label="Radio">
+          <RadioGroup>
+            <Stack>
+              <Radio value="1">Option 1</Radio>
+              <Radio value="2">Option 2</Radio>
+              <Radio value="3">Option 3</Radio>
+            </Stack>
+          </RadioGroup>
+        </FieldWrapper>
+      </FormWrapper>
+    </Formik>
   );
 };

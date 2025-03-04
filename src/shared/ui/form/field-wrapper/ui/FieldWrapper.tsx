@@ -12,7 +12,9 @@ export const FieldWrapper = ({ children, name, label }: FieldWrapperProps) => {
     <Field.Root invalid={!!error}>
       <Field.Label>{label}</Field.Label>
       {React.isValidElement(children) && React.cloneElement(children, { ...field })}
-      <Field.ErrorText>{error}</Field.ErrorText>
+      <Field.ErrorText style={{ position: "absolute", top: "calc(100% + 2px)", lineHeight: 1.1 }}>
+        {error}
+      </Field.ErrorText>
     </Field.Root>
   );
 };

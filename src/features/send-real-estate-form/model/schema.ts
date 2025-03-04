@@ -7,20 +7,30 @@ export const validationSchema = Yup.object().shape({
   [FieldNames.FLOOR]: Yup.number()
     .integer()
     .min(-1)
-    .max(Yup.ref(FieldNames.TOTAL_FLOORS), "Значение не может быть меньше количества этажей в доме")
+    .test("max-floor", function (value) {
+      const { path, parent, createError } = this;
+      const totalFloorsValue = parent[FieldNames.TOTAL_FLOORS];
+
+      if (typeof value !== "number" || isNaN(value)) return true;
+      if (typeof totalFloorsValue !== "number" || isNaN(totalFloorsValue)) return true;
+
+      if (value > totalFloorsValue) {
+        return createError({
+          path,
+          message: `Значение не может быть больше ${totalFloorsValue}`,
+        });
+      }
+      return true;
+    })
     .required(),
   [FieldNames.TOTAL_FLOORS]: Yup.number().integer().min(3).max(200).required(),
   [FieldNames.SQUARE]: Yup.number()
     .integer()
     .min(0)
     .max(400)
-    .test(
-      "is-greater-than-sum",
-      "Общая площадь должна быть больше суммы жилой площади и площади кухни",
-      function (value) {
-        const { livingSquare, kitchenSquare } = this.parent;
-        return Number(value) > Number(livingSquare) + Number(kitchenSquare);
-      }
+    .moreThanSumOfFields(
+      [FieldNames.LIVING_SQUARE, FieldNames.KITCHEN_SQUARE],
+      "Общая площадь должна быть больше суммы жилой площади и площади кухни"
     )
     .required(),
   [FieldNames.LIVING_SQUARE]: Yup.number().integer().min(0).required(),

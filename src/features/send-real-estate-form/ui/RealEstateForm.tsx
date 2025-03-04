@@ -28,29 +28,27 @@ export const RealEstateForm = () => {
         initialValues={initialValues}
         onSubmit={handleSubmit}
         validationSchema={validationSchema}
-        validateOnBlur={false}
-        validateOnChange={false}
       >
         <FormWrapper title="Объект недвижимости">
-          <FieldWrapper name={FieldNames.NAME} label="Название объекта *">
+          <FieldWrapper name={FieldNames.NAME} label="Название объекта*">
             <Input />
           </FieldWrapper>
-          <FieldWrapper name={FieldNames.ADDRESS} label="Адрес *">
+          <FieldWrapper name={FieldNames.ADDRESS} label="Адрес*">
             <Input />
           </FieldWrapper>
-          <FieldWrapper name={FieldNames.FLOOR} label="Этаж *">
+          <FieldWrapper name={FieldNames.FLOOR} label="Этаж*">
             <Input type="number" />
           </FieldWrapper>
-          <FieldWrapper name={FieldNames.TOTAL_FLOORS} label="Количество этажей в доме *">
+          <FieldWrapper name={FieldNames.TOTAL_FLOORS} label="Количество этажей в доме*">
             <Input type="number" />
           </FieldWrapper>
-          <FieldWrapper name={FieldNames.SQUARE} label="Площадь *">
+          <FieldWrapper name={FieldNames.SQUARE} label="Площадь*">
             <Input type="number" />
           </FieldWrapper>
-          <FieldWrapper name={FieldNames.LIVING_SQUARE} label="Жилая площадь *">
+          <FieldWrapper name={FieldNames.LIVING_SQUARE} label="Жилая площадь*">
             <Input type="number" />
           </FieldWrapper>
-          <FieldWrapper name={FieldNames.KITCHEN_SQUARE} label="Площадь кухни *">
+          <FieldWrapper name={FieldNames.KITCHEN_SQUARE} label="Площадь кухни*">
             <Input type="number" />
           </FieldWrapper>
         </FormWrapper>

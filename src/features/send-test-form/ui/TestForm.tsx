@@ -1,14 +1,14 @@
 "use client";
 
-import { Checkbox } from "@/components/ui/checkbox";
-import { Radio, RadioGroup } from "@/components/ui/radio";
+import { Radio, RadioGroup } from "@/shared/ui/chakra/radio";
+import { FormikCheckbox } from "@/shared/ui/fields/formik-checkbox";
 import { FormikFormWrapper } from "@/shared/ui/form/formik-form-wrapper";
 import { Stack } from "@chakra-ui/react";
 
 import { Formik } from "formik";
 import React from "react";
 
-export const TestForm: React.FC = () => {
+export const TestForm = () => {
   const initialValues = {
     checkbox: false,
     radio: "",
@@ -22,7 +22,9 @@ export const TestForm: React.FC = () => {
     <>
       <Formik initialValues={initialValues} onSubmit={handleSubmit}>
         <FormikFormWrapper title="Чекбокс и радио">
-          <Checkbox name="agree">agree</Checkbox>
+          <FormikCheckbox name="checkbox" label="Checkbox">
+            checkbox
+          </FormikCheckbox>
           <RadioGroup>
             <Stack>
               <Radio value="1">Option 1</Radio>

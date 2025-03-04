@@ -10,7 +10,6 @@ export const FormikRadioGroup = ({ children, name, label }: FormikRadioGroupProp
 
   return (
     <FormikFieldWrapper name={name} label={label}>
-      {" "}
       <RadioGroup value={field.value} onValueChange={(e) => setFieldValue(name, e.value)}>
         {children}
       </RadioGroup>

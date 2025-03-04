@@ -1,0 +1,22 @@
+.block {
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto;
+}
+
+.title {
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.button {
+  width: 100% !important;
+  margin-top: 20px;
+}

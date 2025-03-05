@@ -5,20 +5,20 @@ import { FieldWrapper } from "@/shared/ui/form/field-wrapper";
 import { FormWrapper } from "@/shared/ui/form/form-wrapper";
 import { Input } from "@chakra-ui/react";
 import { Formik } from "formik";
-import { validationSchema } from "../model/schema";
+import { validationSchema, ValidationSchemaType } from "../model/schema";
 
 export const RealEstateForm = () => {
-  const initialValues = {
+  const initialValues: ValidationSchemaType = {
     [FieldNames.NAME]: "",
     [FieldNames.ADDRESS]: "",
-    [FieldNames.FLOOR]: "",
-    [FieldNames.TOTAL_FLOORS]: "",
-    [FieldNames.SQUARE]: "",
-    [FieldNames.LIVING_SQUARE]: "",
-    [FieldNames.KITCHEN_SQUARE]: "",
+    [FieldNames.FLOOR]: "" as unknown as number,
+    [FieldNames.TOTAL_FLOORS]: "" as unknown as number,
+    [FieldNames.SQUARE]: "" as unknown as number,
+    [FieldNames.LIVING_SQUARE]: "" as unknown as number,
+    [FieldNames.KITCHEN_SQUARE]: "" as unknown as number,
   };
 
-  const handleSubmit = (values: typeof initialValues) => {
+  const handleSubmit = (values: ValidationSchemaType) => {
     console.log(values);
   };
 

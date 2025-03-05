@@ -5,20 +5,20 @@ import { FieldWrapper } from "@/shared/ui/form/field-wrapper";
 import { FormWrapper } from "@/shared/ui/form/form-wrapper";
 import { Input } from "@chakra-ui/react";
 import { Formik } from "formik";
-import { validationSchema } from "../model/schema";
+import { validationSchema, ValidationSchemaType } from "../model/schema";
 
 export const RealEstateForm = () => {
-  const initialValues = {
+  const initialValues: ValidationSchemaType = {
     [FieldNames.NAME]: "",
     [FieldNames.ADDRESS]: "",
-    [FieldNames.FLOOR]: "",
-    [FieldNames.TOTAL_FLOORS]: "",
-    [FieldNames.SQUARE]: "",
-    [FieldNames.LIVING_SQUARE]: "",
-    [FieldNames.KITCHEN_SQUARE]: "",
+    [FieldNames.FLOOR]: "" as unknown as number,
+    [FieldNames.TOTAL_FLOORS]: "" as unknown as number,
+    [FieldNames.SQUARE]: "" as unknown as number,
+    [FieldNames.LIVING_SQUARE]: "" as unknown as number,
+    [FieldNames.KITCHEN_SQUARE]: "" as unknown as number,
   };
 
-  const handleSubmit = (values: typeof initialValues) => {
+  const handleSubmit = (values: ValidationSchemaType) => {
     console.log(values);
   };
 
@@ -29,25 +29,25 @@ export const RealEstateForm = () => {
       validationSchema={validationSchema}
     >
       <FormWrapper title="Объект недвижимости">
-        <FieldWrapper name={FieldNames.NAME} label="Название объекта*">
+        <FieldWrapper name={FieldNames.NAME} label="Название объекта *">
           <Input />
         </FieldWrapper>
-        <FieldWrapper name={FieldNames.ADDRESS} label="Адрес*">
+        <FieldWrapper name={FieldNames.ADDRESS} label="Адрес *">
           <Input />
         </FieldWrapper>
-        <FieldWrapper name={FieldNames.FLOOR} label="Этаж*">
+        <FieldWrapper name={FieldNames.FLOOR} label="Этаж *">
           <Input type="number" />
         </FieldWrapper>
-        <FieldWrapper name={FieldNames.TOTAL_FLOORS} label="Количество этажей в доме*">
+        <FieldWrapper name={FieldNames.TOTAL_FLOORS} label="Количество этажей в доме *">
           <Input type="number" />
         </FieldWrapper>
-        <FieldWrapper name={FieldNames.SQUARE} label="Площадь*">
+        <FieldWrapper name={FieldNames.SQUARE} label="Площадь *">
           <Input type="number" />
         </FieldWrapper>
-        <FieldWrapper name={FieldNames.LIVING_SQUARE} label="Жилая площадь*">
+        <FieldWrapper name={FieldNames.LIVING_SQUARE} label="Жилая площадь *">
           <Input type="number" />
         </FieldWrapper>
-        <FieldWrapper name={FieldNames.KITCHEN_SQUARE} label="Площадь кухни*">
+        <FieldWrapper name={FieldNames.KITCHEN_SQUARE} label="Площадь кухни *">
           <Input type="number" />
         </FieldWrapper>
       </FormWrapper>

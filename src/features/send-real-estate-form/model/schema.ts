@@ -34,5 +34,13 @@ export const validationSchema = Yup.object().shape({
     )
     .required(),
   [FieldNames.LIVING_SQUARE]: Yup.number().integer().min(0).required(),
-  [FieldNames.KITCHEN_SQUARE]: Yup.number().integer().min(0).required(),
+  [FieldNames.KITCHEN_SQUARE]: Yup.number()
+    .transform(
+      (value, originalValue) => (originalValue === "" ? undefined : value) // Преобразование пустой строки
+    )
+    .integer()
+    .min(0)
+    .required(),
 });
+
+export type ValidationSchemaType = Yup.InferType<typeof validationSchema>;
